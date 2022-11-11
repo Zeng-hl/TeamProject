@@ -17,7 +17,7 @@ public class SubwayLine {
     //末班时间
     Date LastTime = new Date();
     //线上的站点
-//    public List<Station> stations = new ArrayList<>();---------------未完成
+    public List<Station> stations = new ArrayList<>();
 
     public SubwayLine() throws ParseException {
     }

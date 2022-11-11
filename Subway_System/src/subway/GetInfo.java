@@ -46,7 +46,59 @@ public class GetInfo {
                     // 判断该站点是否可换乘
                     boolean isTransfer = s.contains("#");
                     if(isTransfer) {
-                        //--------------------未完成
+                        station.isTransferStation = true;
+                        // 分离换乘站信息
+                        String[] tokens3 = s.split("#");
+                        station.name = tokens3[0];
+                        // 解析该站点可换成的线路
+                        for(int i = 1; i < tokens3.length; i++) {
+                            if(tokens3[i].equals("1"))
+                                station.lines.add("1号线");
+                            else if(tokens3[i].equals("2"))
+                                station.lines.add("2号线");
+                            else if(tokens3[i].equals("4"))
+                                station.lines.add("4号线");
+                            else if(tokens3[i].equals("5"))
+                                station.lines.add("5号线");
+                            else if(tokens3[i].equals("6"))
+                                station.lines.add("6号线");
+                            else if(tokens3[i].equals("7"))
+                                station.lines.add("7号线");
+                            else if(tokens3[i].equals("8北"))
+                                station.lines.add("8号线北");
+                            else if(tokens3[i].equals("8南"))
+                                station.lines.add("8号线南");
+                            else if(tokens3[i].equals("9"))
+                                station.lines.add("9号线");
+                            else if(tokens3[i].equals("10"))
+                                station.lines.add("10号线");
+                            else if(tokens3[i].equals("13"))
+                                station.lines.add("13号线");
+                            else if(tokens3[i].equals("14西"))
+                                station.lines.add("14号线西");
+                            else if(tokens3[i].equals("14东"))
+                                station.lines.add("14号线东");
+                            else if(tokens3[i].equals("15"))
+                                station.lines.add("15号线");
+                            else if(tokens3[i].equals("16"))
+                                station.lines.add("16号线");
+                            else if(tokens3[i].equals("八通"))
+                                station.lines.add("八通线");
+                            else if(tokens3[i].equals("房山"))
+                                station.lines.add("房山线");
+                            else if(tokens3[i].equals("昌平"))
+                                station.lines.add("昌平线");
+                            else if(tokens3[i].equals("亦庄"))
+                                station.lines.add("亦庄线");
+                            else if(tokens3[i].equals("燕房"))
+                                station.lines.add("燕房线");
+                            else if(tokens3[i].equals("S1"))
+                                station.lines.add("S1线");
+                            else if(tokens3[i].equals("西郊"))
+                                station.lines.add("西郊线");
+                            else if(tokens3[i].equals("首都机场"))
+                                station.lines.add("首都机场线");
+                        }
                         }
                         else {
                             if(s.contains("!")) {
@@ -60,7 +112,7 @@ public class GetInfo {
                     // 添加途径站点
                     stations.add(station);
                     // 为该线路添加站点
-//                    s1.stations.add(station);-------------------未完成
+                    s1.stations.add(station);
                     }
                 lines.add(s1);
                 }
